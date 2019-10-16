@@ -44,17 +44,17 @@ class SearchForm extends React.Component{
         const { inputVal } = this.state;
         return <Form layout="inline" onSubmit={this.handleSubmit}>
             <Form.Item>
-                <Input type="text"
-                       value={inputVal}
-                       onChange={this.handleInput}
-                       placeholder="..."
-                />
-            </Form.Item>
-            <Form.Item>
                 <Radio.Group onChange={this.handleChangeType} value={this.state.byType}>
                     <Radio value={false} defaultChecked={true}>Name</Radio>
                     <Radio value={true} defaultChecked={false}>Type</Radio>
                 </Radio.Group>
+            </Form.Item>
+            <Form.Item>
+                <Input type="text"
+                       value={inputVal}
+                       onChange={this.handleInput}
+                       placeholder={ this.state.byType ? "Insert pokemon type" : "Insert pokemon name" }
+                />
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit" icon="search">

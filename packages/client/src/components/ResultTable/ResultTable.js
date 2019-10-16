@@ -19,7 +19,7 @@ function ResultTable(props) {
 
     if (loading) return <p>Loading</p>;
     if (error) return <p>Error</p>;
-    if(!props.search) return <p>Search pokemons by type or name</p>;
+    if(!props.search) return <p>Gotta Catch 'Em All</p>;
 
     let onLoadMore = () => {
         fetchMore({

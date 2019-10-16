@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <header className="App-header">
             <h3>Pokemon</h3>
-            <p>You're my best friend in a world we must defend</p>
+            <p>"You're my best friend in a world we must defend" cit. Pokemon Theme</p>
             <SearchPage />
         </header>
       </div>

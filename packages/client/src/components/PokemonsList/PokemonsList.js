@@ -21,7 +21,7 @@ const COLUMNS = [
         }
     },
     {
-        title: 'Gonna catch',
+        title: 'Gotta catch',
         key: 'name',
         render: (text, record) => {
             return "Yes";
