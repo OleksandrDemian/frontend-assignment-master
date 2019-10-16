@@ -23,8 +23,6 @@ function ResultTable(props) {
 
     let onLoadMore = () => {
         fetchMore({
-            // note this is a different query than the one used in the
-            // Query component
             query: query,
             variables: {
                 q: props.inputVal,
