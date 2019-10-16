@@ -22,7 +22,7 @@ const COLUMNS = [
     },
     {
         title: 'Gotta catch',
-        key: 'name',
+        key: 'gottaCatch',
         render: (text, record) => {
             return "Yes";
         }
