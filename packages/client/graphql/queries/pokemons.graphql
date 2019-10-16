@@ -1,0 +1,16 @@
+query POKEMONS {
+    pokemons(q: "Pi", after: null, limit: 15){
+        pageInfo {
+            endCursor,
+            hasNextPage
+        },
+        edges {
+            cursor,
+            node {
+                id,
+                name,
+                types
+            }
+        }
+    }
+}
