@@ -20,12 +20,19 @@ const COLUMNS = [
             return text.toString();
         }
     },
+    {
+        title: 'Gonna catch',
+        key: 'name',
+        render: (text, record) => {
+            return "Yes";
+        }
+    }
 ];
 
 function PokemonsList({ pokemons, loadMore, hasMore }) {
     return <React.Fragment>
         <Table columns={COLUMNS} dataSource={pokemons} pagination={false} rowKey={"cursor"} key={"cursor"} />
-        { hasMore && <Button type="primary" onClick={loadMore}>
+        { hasMore && <Button type="primary" onClick={loadMore} className="margin-m">
             Load more
         </Button>}
     </React.Fragment>

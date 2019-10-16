@@ -10,7 +10,9 @@ function App() {
     <ApolloProvider client={CLIENT}>
       <div className="App">
         <header className="App-header">
-          <SearchPage />
+            <h3>Pokemon</h3>
+            <p>You're my best friend in a world we must defend</p>
+            <SearchPage />
         </header>
       </div>
     </ApolloProvider>

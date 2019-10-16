@@ -7,6 +7,7 @@ function ResultTable(props) {
     let query = props.byType === true ? POKEMONS_BY_TYPE : POKEMONS;
 
     const { loading, error, data , fetchMore } = useQuery(query, {
+        skip: !props.search,
         variables: {
             q: props.inputVal,
             after: null,
@@ -18,14 +19,16 @@ function ResultTable(props) {
 
     if (loading) return <p>Loading</p>;
     if (error) return <p>Error</p>;
+    if(!props.search) return <p>Search pokemons by type or name</p>;
 
     let onLoadMore = () => {
         fetchMore({
             // note this is a different query than the one used in the
             // Query component
-            query: POKEMONS,
+            query: query,
             variables: {
                 q: props.inputVal,
+                type: props.inputVal,
                 after: data.pokemons.pageInfo.endCursor,
                 limit: 15
             },

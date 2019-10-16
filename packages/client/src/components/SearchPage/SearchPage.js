@@ -34,6 +34,7 @@ class SearchPage extends React.Component{
     render() {
         return <React.Fragment>
             <SearchForm onSearch={this.onSearch} />
+            <br />
             <ResultTable
                 inputVal={this.state.inputVal}
                 after={this.state.after}

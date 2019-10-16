@@ -20,15 +20,29 @@ export function query(args: {
     type?: string;
 }): Connection<Pokemon> {
     const { after, type, limit = SIZE } = args;
+    let toCheck = "";
+    if(type != null){
+        toCheck = type.toLowerCase();
+    }
 
     const filterByType: (as: Pokemon[]) => Pokemon[] =
-        // filter only if q is defined
+        // filter only if type is defined
         type === undefined
             ? identity
-            : A.filter(p => p.types.includes(type));
+            : A.filter(p => {
+                    for(let i = 0; i < p.types.length; i++){
+                        let t = p.types[i];
+                        if(t.toLowerCase().includes(toCheck)){
+                            return true;
+                        }
+                    }
+
+                    return false;
+                }
+            );
 
     const sliceByAfter: (as: Pokemon[]) => Pokemon[] =
-        // filter only if q is defined
+        // filter only if after is defined
         after === undefined
             ? identity
             : as =>

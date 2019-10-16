@@ -20,8 +20,8 @@ const POKEMONS = gql`
 `;
 
 const POKEMONS_BY_TYPE = gql`
-    query pokemonsByType($type: String!){
-        pokemons: pokemonsByType(type: $type) {
+    query pokemonsByType($type: String!, $after: ID, $limit: Int){
+        pokemons: pokemonsByType(type: $type, after: $after, limit: $limit) {
             pageInfo {
                 endCursor
                 hasNextPage

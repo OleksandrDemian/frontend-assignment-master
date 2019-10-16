@@ -47,7 +47,7 @@ class SearchForm extends React.Component{
                 <Input type="text"
                        value={inputVal}
                        onChange={this.handleInput}
-                       placeholder="Name"
+                       placeholder="..."
                 />
             </Form.Item>
             <Form.Item>
@@ -57,7 +57,7 @@ class SearchForm extends React.Component{
                 </Radio.Group>
             </Form.Item>
             <Form.Item>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" icon="search">
                     Search
                 </Button>
             </Form.Item>
