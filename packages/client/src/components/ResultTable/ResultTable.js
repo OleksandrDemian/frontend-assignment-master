@@ -11,7 +11,7 @@ function ResultTable(props) {
         variables: {
             q: props.inputVal,
             after: null,
-            limit: 15,
+            limit: props.limit,
             type: props.inputVal
         },
         fetchPolicy: "cache-and-network"
@@ -28,7 +28,7 @@ function ResultTable(props) {
                 q: props.inputVal,
                 type: props.inputVal,
                 after: data.pokemons.pageInfo.endCursor,
-                limit: 15
+                limit: props.limit
             },
             updateQuery: (previousResult, { fetchMoreResult }) => {
                 const prevData = previousResult.pokemons.edges;

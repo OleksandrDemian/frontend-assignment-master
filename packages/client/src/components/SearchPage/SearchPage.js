@@ -22,8 +22,8 @@ class SearchPage extends React.Component{
         this.setState((state, props) => {
             return {
                 // after: searchData.after,
-                // limit: searchData.limit,
 
+                limit: searchData.limit,
                 inputVal: searchData.inputVal,
                 byType: searchData.byType,
                 search: true

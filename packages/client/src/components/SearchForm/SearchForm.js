@@ -1,5 +1,5 @@
 import React from "react";
-import {Form, Input, Button, Radio} from 'antd';
+import {Form, Input, Button, Radio, Select} from 'antd';
 
 class SearchForm extends React.Component{
 
@@ -8,12 +8,14 @@ class SearchForm extends React.Component{
 
         this.state = {
             inputVal: "",
-            byType: false
+            byType: false,
+            limit: 15
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleChangeType = this.handleChangeType.bind(this);
+        this.handleLimit = this.handleLimit.bind(this);
     }
 
     handleSubmit(e){
@@ -40,6 +42,12 @@ class SearchForm extends React.Component{
         });
     }
 
+    handleLimit(value){
+        this.setState((state, props) => {
+            return { limit: value }
+        });
+    }
+
     render() {
         const { inputVal } = this.state;
         return <Form layout="inline" onSubmit={this.handleSubmit}>
@@ -55,6 +63,14 @@ class SearchForm extends React.Component{
                        onChange={this.handleInput}
                        placeholder={ this.state.byType ? "Insert pokemon type" : "Insert pokemon name" }
                 />
+            </Form.Item>
+            <Form.Item>
+                <Select onChange={this.handleLimit} defaultValue={10} value={this.state.limit}>
+                    <Select.Option value={5}>5</Select.Option>
+                    <Select.Option value={10}>10</Select.Option>
+                    <Select.Option value={15}>15</Select.Option>
+                    <Select.Option value={30}>30</Select.Option>
+                </Select>
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit" icon="search">
